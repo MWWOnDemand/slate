@@ -1,0 +1,43 @@
+# Web Hooks
+
+A customer can provide a single URL to be called with a notifications when various events occur related to his/her orders. Also customers may opt-in/out to various order/order item events that fire notifications.
+
+
+## Create a Web Hook
+
+This endpoint will submit a new webhook record. Customers should only have one Web Hook.
+
+<%= partial "includes/api/curl_snippets/post_webhook_request.md" %>
+
+> The above command returns JSON structured like this:
+
+<%= partial "includes/api/json_snippets/post_webhook_response.md" %>
+
+
+### HTTP Request
+
+`POST http://localhost:3000/api/webhooks`
+
+
+### POST Parameters
+
+Parameter | Default / Type | Description
+--------- | ------- | -----------
+data | {} | The root element of your JSON post object.
+type | webhooks | Resource the object represents.
+attributes | {} | The object that contains all the pertanent information about the order.
+attributes[url] | nil | String: the URL to receive callback notifications
+attributes[enabled] | true | Boolean
+attributes[received] | true | Boolean
+attributes[design-downloaded] | false | Boolean
+attributes[processed] | true | Boolean
+attributes[shipped] | true | Boolean
+attributes[cancelled] | true | Boolean
+attributes[printed] | false | Boolean
+attributes[pressed] | false | Boolean
+attributes[cut] | false | Boolean
+attributes[sewn] | false | Boolean
+attributes[turned] | false | Boolean
+attributes[packed] | false | Boolean
+
+*Note: this endpoint follows the [JSON API 1.0 Spec](http://jsonapi.org/format/1.0/)*
