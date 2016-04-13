@@ -1,5 +1,5 @@
 ```shell
-curl http://localhost:3000/api/orders \
+curl -i -X POST http://localhost:3000/api/webhooks \
   -d '{
     "data": {
       "type": "webhooks",
@@ -8,8 +8,7 @@ curl http://localhost:3000/api/orders \
       }
     }
   }' \
-  -X POST \
   -H "Content-Type: application/vnd.api+json" \
   -H "Accept: application/vnd.api+json; version=2" \
-  -H "api-key: YOUR_API_KEY"
+  -H "Authorization: YOUR_API_KEY"
 ```
