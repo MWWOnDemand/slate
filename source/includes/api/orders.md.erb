@@ -17,23 +17,33 @@ This endpoint will submit a new order.
 
 ### Post Parameters
 
+*Order details*
+
 Parameter | Default / Type | Description
 --------- | ------- | -----------
 data | {} | The root element of your JSON post object.
 type | orders | Resource the object represents.
 attributes | {} | The object that contains all the pertanent information about the order.
-vendor-order-id | TBD | Do we need this?
-po | required (string / number) | Your PO number. This string/number must be unique with every order.
+vendor-po | required (string / number) | Your PO number. This string/number must be unique with every order.
 shipping-method | string | The shipping carrier and method for the order. For example, use USPSF for USPS First Class. See shipping methods.
+shipping-name | string | The name to reference the shipping details
 shipping-address | string | The destination street plus additional details (suite/apt./etc). Additional lines should be separated by a carriage return "\n".
 shipping-city | string | The destination city of the shipment.
 shipping-state | string | Two digit ISO 3166-2 code of the destination state, ie "US".
 shipping-postal-code | string | The destination postal code of the shipment.
+billing-name | string | The name to reference the billing details
 billing-address | string | The billing street plus additional details (suite/apt./etc). Additional lines should be separated by a carriage return "\n". If omitted the shipping address will be used.
 billing-city | string | The billing city of the shipment. If omitted the shipping city will be used.
 billing-state | string | Two digit ISO 3166-2 code of the destination state, ie "US". If omitted the shipping city will be used.
 billing-postal-code | string | The billing postal code of the shipment. If omitted the shipping city will be used.
-line-items-attributes | [] | The root array element describing the item(s) to be ordered.
+
+*Line Item details*
+
+Parameter | Default / Type | Description
+--------- | ------- | -----------
+included | [{}] | The array element describing the item(s) to be included in the order.
+type | line-items | Resource the object represents.
+attributes | {} | The object that contains all the pertanent information about the line-item resource.
 line-number | number | Each line should have a line number in incrementing order. If omitted a line number will be automatically assigned.
 quantity | number | The number of items you want to order for a given product.
 description | string | You description of the item. If omitted the default product description will be used.
@@ -42,6 +52,7 @@ item-properties | {} | Additional attributes for some products. This can be omit
 designs | [{}] | An array of objects describing information about the artwork to be printed.
 path-to-image | string | A publically accessable path to the source artwork.
 
+*Note: This endpoint follows the [JSON API 1.0 Spec](http://jsonapi.org/format/1.0/), and also allows included items when creating the order.*
 
 ## Get All Orders
 
@@ -147,4 +158,3 @@ This endpoint retrieves a specific order.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
-
