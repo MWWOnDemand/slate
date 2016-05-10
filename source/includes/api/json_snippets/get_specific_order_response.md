@@ -38,20 +38,20 @@
     "relationships": {
       "line-items": {
         "links": {
-          "self": "http://localhost:3000/api/orders/001122334455667788/relationships/line-items",
-          "related": "http://localhost:3000/api/orders/001122334455667788/line-items"
+          "self": "https://api.mwwondemand.com/api/orders/001122334455667788/relationships/line-items",
+          "related": "https://api.mwwondemand.com/api/orders/001122334455667788/line-items"
         }
       },
       "line-item-views": {
         "links": {
-          "self": "http://localhost:3000/api/orders/001122334455667788/relationships/line-item-views",
-          "related": "http://localhost:3000/api/orders/001122334455667788/line-item-views"
+          "self": "https://api.mwwondemand.com/api/orders/001122334455667788/relationships/line-item-views",
+          "related": "https://api.mwwondemand.com/api/orders/001122334455667788/line-item-views"
         }
       },
       "user": {
         "links": {
-          "self": "http://localhost:3000/api/orders/001122334455667788/relationships/user",
-          "related": "http://localhost:3000/api/orders/001122334455667788/user"
+          "self": "https://api.mwwondemand.com/api/orders/001122334455667788/relationships/user",
+          "related": "https://api.mwwondemand.com/api/orders/001122334455667788/user"
         }
       }
     }

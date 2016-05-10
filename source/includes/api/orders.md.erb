@@ -56,6 +56,12 @@ path-to-image | string | A publically accessible path to the source artwork.
 
 ## Get All Orders
 
+<%= partial "includes/api/curl_snippets/get_all_orders_request.md" %>
+
+> The above command returns JSON structured like this:
+
+<%= partial "includes/api/json_snippets/get_all_orders_response.md" %>
+
 ```ruby
 require 'kittn'
 
@@ -68,32 +74,6 @@ import kittn
 
 api = kittn.authorize('meowmeowmeow')
 api.kittens.get()
-```
-
-```shell
-curl "https://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
 ```
 
 This endpoint retrieves all orders.
