@@ -114,6 +114,12 @@ Remember — a successful request will be an authenticated request!
 
 ## Get a Specific Order
 
+<%= partial "includes/api/curl_snippets/get_specific_order_request.md" %>
+
+> The above command returns JSON structured like this:
+
+<%= partial "includes/api/json_snippets/get_specific_order_response.md" %>
+
 ```ruby
 require 'kittn'
 
@@ -128,33 +134,20 @@ api = kittn.authorize('meowmeowmeow')
 api.kittens.get(2)
 ```
 
-```shell
-curl "https://api.mwwondemand.com/api/order/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
 This endpoint retrieves a specific order.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTPS Request
 
-`GET https://api.mwwondemand.com/orders/YOUR_ID<ID>`
+`GET https://api.mwwondemand.com/orders/<MWW_ORDER_ID>`
+### _or_
+
+`GET https://api.mwwondemand.com/orders/<YOUR_VENDOR_PO>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+id | The ID of the kitten to retrieve
+vendor_po | Your PO number. This string/number must be unique with every order
