@@ -100,3 +100,34 @@ Remove customer Web hook.
 > The above command returns JSON structured like this:
 
 <%= partial "includes/api/json_snippets/delete_webhook_response.md" %>
+
+## Web Hook Notifications
+
+> Example POST payload (JSON) for the (order) `received` event:
+
+<%= partial "includes/api/json_snippets/post_webhook_notification.md" %>
+
+Based on your opt-in preferences for various events, the API will POST back
+to the your Web Hook URL. The web hook url and settings are available in your
+profile, see the <https://api.mwwondemand.com/account/> page.
+
+The `url` (string) must be a valid URL (an API endpoint you host) and the
+`enabled` (boolean) setting must be checked.
+
+First login, then visit <https://api.mwwondemand.com/account/user/webhooks> to
+edit your Web Hooks (opt-in) preferences.
+
+- The `enabled` checkbox must be `checked` in order to receive POST notifications.
+- Check the various events that you would like to receive notifications for.
+
+Events for Orders | Events for Items
+----------------- | ----------------
+Received | Printed
+Design Downloaded | Pressed
+Not Valid | Cut
+Processed | Sewn
+Shipped | Turned
+Cancelled | Packed
+
+To the right is an example JSON payload for a POST notification sent after an
+order is received.
