@@ -1,0 +1,131 @@
+
+# Orders
+
+## Submit Order
+
+<%= partial "includes/api/curl_snippets/post_order_request.md" %>
+
+> The above command returns JSON structured like this:
+
+<%= partial "includes/api/json_snippets/post_order_response.md" %>
+
+This endpoint will submit a new order.
+
+### HTTPS Request
+
+`POST https://api.mwwondemand.com/api/orders`
+
+### Post Parameters
+
+*Order details*
+
+Parameter | Default / Type | Description
+--------- | ------- | -----------
+data | {} | The root element of your JSON post object.
+type | orders | Resource the object represents.
+attributes | {} | The object that contains all the pertanent information about the order.
+vendor-po | required (string / number) | Your PO number. This string/number must be unique with every order.
+shipping-method | string | The shipping carrier and method for the order. For example, use USPSF for USPS First Class. See shipping methods.
+shipping-name | string | The name to reference the shipping details
+shipping-address | string | The destination street plus additional details (suite/apt./etc). Additional lines should be separated by a carriage return "\n".
+shipping-city | string | The destination city of the shipment.
+shipping-state | string | Two digit ISO 3166-2 code of the destination state, ie "US".
+shipping-postal-code | string | The destination postal code of the shipment.
+billing-name | string | The name to reference the billing details
+billing-address | string | The billing street plus additional details (suite/apt./etc). Additional lines should be separated by a carriage return "\n". If omitted the shipping address will be used.
+billing-city | string | The billing city of the shipment. If omitted the shipping city will be used.
+billing-state | string | Two digit ISO 3166-2 code of the destination state, ie "US". If omitted the shipping city will be used.
+billing-postal-code | string | The billing postal code of the shipment. If omitted the shipping city will be used.
+
+*Line Item details*
+
+Parameter | Default / Type | Description
+--------- | ------- | -----------
+included | [{}] | The array element describing the item(s) to be included in the order.
+type | line-items | Resource the object represents.
+attributes | {} | The object that contains all the pertanent information about the line-item resource.
+line-number | number | Each line should have a line number in incrementing order. If omitted a line number will be automatically assigned.
+quantity | number | The number of items you want to order for a given product.
+description | string | You description of the item. If omitted the default product description will be used.
+product-code | number | The product code of the item to order. See product codes here.
+item-properties | {} | Additional attributes for some products. This can be omitted in most cases. See products for more information.
+designs | [{}] | An array of objects describing information about the artwork to be printed.
+path-to-image | string | A publically accessible path to the source artwork.
+
+*Note: This endpoint follows the [JSON API 1.0 Spec](http://jsonapi.org/format/1.0/), and also allows included items when creating the order.*
+
+## Get All Orders
+
+<%= partial "includes/api/curl_snippets/get_all_orders_request.md" %>
+
+> The above command returns JSON structured like this:
+
+<%= partial "includes/api/json_snippets/get_all_orders_response.md" %>
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get()
+```
+
+An endpoint to retrieve orders. By default the first request will limit to 10 orders with an offset of 0.
+
+### HTTPS Request
+
+`GET https://api.mwwondemand.com/api/orders`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include | none | If set to line-items, the result will also include line-items.
+
+<aside class="success">
+Remember — a successful request will be an authenticated request!
+</aside>
+
+## Get a Specific Order
+
+<%= partial "includes/api/curl_snippets/get_specific_order_request.md" %>
+
+> The above command returns the following JSON:
+
+<%= partial "includes/api/json_snippets/get_specific_order_response.md" %>
+
+```ruby
+require 'mww'
+
+api = Mww::APIClient.authorize!('meowmeowmeow')
+api.orders.get(2)
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.orders.get(2)
+```
+
+This endpoint retrieves a specific order.
+
+### HTTPS Request
+
+`GET https://api.mwwondemand.com/orders/<MWW_ORDER_ID>`
+### _or_
+
+`GET https://api.mwwondemand.com/orders/<YOUR_VENDOR_PO>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the kitten to retrieve
+vendor_po | Your PO number. This string/number must be unique with every order
