@@ -51,6 +51,12 @@
           "related": "https://api.mwwondemand.com/api/orders/533109340861629455/user",
           "self": "https://api.mwwondemand.com/api/orders/533109340861629455/relationships/user"
         }
+      },
+      "pack-list": {
+        "links": {
+          "self": "https://api.mwwondemand.com/api/orders/533109340861629455/relationships/pack-list",
+          "related": "https://api.mwwondemand.com/api/orders/533109340861629455/pack-list"
+        }
       }
     },
     "type": "orders"
