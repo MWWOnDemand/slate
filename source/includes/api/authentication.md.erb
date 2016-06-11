@@ -27,7 +27,9 @@ curl -X GET https://api.mwwondemand.com/api/endpoint \
 
 > Make sure to replace `YOUR_API_KEY` with your API key.
 
-Access to the API uses an API key for authentication. You can register a new API key at our [customer dashboard](https://dashboard.mwwondemand.com).
+Access to the API uses an API key for authentication. You can register a new API key at <https://api.mwwondemand.com/account/>.
+
+After you register, you can view your API key at <https://api.mwwondemand.com/account/user/api-key>.
 
 The API expects an API key to be included in all API requests to the server in a header that looks like the following:
 
@@ -37,6 +39,45 @@ The API expects an API key to be included in all API requests to the server in a
 You must replace <code>YOUR_API_KEY</code> with your personal API key.
 </aside>
 
+
+## Regenerate Your API Key
+
+> To expire your existing api-key and generate a new one, use this code:
+
+```shell
+curl -X PATCH https://api.mwwondemand.com/api/regenerate-api-key \
+  -H "Content-Type: application/vnd.api+json" \
+  -H "Accept: application/vnd.api+json; version=1" \
+  -H "Authorization: auth-key=YOUR_EXISTING_API_KEY"
+```
+
+> Make sure to replace `YOUR_EXISTING_API_KEY` with your existing API key.
+> The above command returns a response like:
+
+```
+HTTP/1.1 200 OK
+Authorization: auth-key=YOUR_NEW_API_KEY
+Content-Type: application/json; charset=utf-8
+```
+
+```json
+{
+  "data": {
+    "id": "YOUR_USER_ID",
+    "type": "users",
+    "attributes": {
+      "api-key": "YOUR_NEW_API_KEY"
+    }
+  }
+}
+```
+
+To change your API key make a PATCH request using the `api/regenerate-api-key` endpoint.
+
+- Requires your existing API Key in the `Authorization` Header
+- Response Header and body include your newly generated `api-key`
+
+Also, you can regenerate the key at <https://api.mwwondemand.com/account/user/api-key>.
 
 ## Bearer Token
 
