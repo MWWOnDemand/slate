@@ -52,6 +52,15 @@ item-properties | {} | Additional attributes for some products. This can be omit
 designs | [{}] | An array of objects describing information about the artwork to be printed.
 path-to-image | string | A publically accessible path to the source artwork.
 
+*Packing List details*
+
+Parameter | Default / Type | Description
+--------- | ------- | -----------
+included | [{}] | The array element describing the item(s) to be included in the order.
+type | pack-list | Resource the object represents.
+attributes | {} | The object that contains all the pertanent information about the line-item resource.
+url | string | Publicly accessible path to image file (PDF) for the order's packing list
+
 *Note: This endpoint follows the [JSON API 1.0 Spec](http://jsonapi.org/format/1.0/), and also allows included items when creating the order.*
 
 ## Get All Orders

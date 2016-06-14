@@ -51,6 +51,12 @@ curl -X "POST" "https://api.mwwondemand.com:443/api/orders" \
           }
         ]
       }
+    },
+    { 
+      "type": "pack-list",
+      "attributes": {
+        "url": "https://images.YOURSTORAGELOCATION.com/packing_lists/123412341234.pdf"
+        }
     }
   ]
 }'
