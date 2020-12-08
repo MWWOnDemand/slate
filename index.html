@@ -146,7 +146,7 @@
                     <a href="#get-a-specific-order" class="toc-h2 toc-link" data-title="Get a Specific Order">Get a Specific Order</a>
                   </li>
                   <li>
-                    <a href="#update-order" class="toc-h2 toc-link" data-title="Update Order">Update Order</a>
+                    <a href="#update-ship-method" class="toc-h2 toc-link" data-title="Update Ship Method">Update Ship Method</a>
                   </li>
                   <li>
                     <a href="#cancel" class="toc-h2 toc-link" data-title="Cancel">Cancel</a>
@@ -1833,7 +1833,7 @@ Remember — a successful request will be an authenticated request!
 <td>Your PO number. This string/number must be unique with every order</td>
 </tr>
 </tbody></table>
-<h2 id='update-order'>Update Order</h2>
+<h2 id='update-ship-method'>Update Ship Method</h2>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> <span class="s2">"PATCH"</span> <span class="s2">"https://api.mwwondemand.com/api/orders/:id/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.api+json;version=1"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: auth-key=YOUR_API_KEY"</span> <span class="se">\</span>
@@ -2113,7 +2113,7 @@ Content-Type: application/json; charset=utf-8
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 
-<p>This endpoint requests to update a specific order. We are unable to immediately update the order. We will deny requests immediatley if the order is already packed, shipped or cancelled. We will also deny requests if the original order has not been fully ingested. This may take up to an hour from submission. Sucessful requests will then recieve a webhook confirming the update.</p>
+<p>This endpoint requests to update a specific order. We are unable to immediately update the order. We will deny requests immediately if the order is already packed, shipped or cancelled. We will also deny requests if the original order has not been fully ingested. This may take up to an hour from submission. Successful requests will then recieve a webhook confirming the update.</p>
 <h3 id='https-request-4'>HTTPS Request</h3>
 <p><code>PATCH https://api.mwwondemand.com/api/orders/&lt;MWW_ORDER_ID&gt;/</code></p>
 <h3 id='or-2'><em>or</em></h3>
@@ -2418,7 +2418,7 @@ Content-Type: application/json; charset=utf-8
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 
-<p>This endpoint requests to cancel a specific order. We are unable to immediately cancel the order. We will deny requests immediatley if the order is already packed, shipped or cancelled. We will also deny requests if the original order has not been fully ingested. This may take up to an hour from submission. Sucessful requests will then recieve a webhook confirming the cancellation.</p>
+<p>This endpoint requests to cancel a specific order. We are unable to immediately cancel the order. We will deny requests immediatley if the order is already packed, shipped or cancelled. We will also deny requests if the original order has not been fully ingested. This may take up to an hour from submission. Successful requests will then recieve a webhook confirming the cancellation.</p>
 <h3 id='https-request-5'>HTTPS Request</h3>
 <p><code>PATCH https://api.mwwondemand.com/api/orders/&lt;MWW_ORDER_ID&gt;/</code></p>
 <h3 id='or-3'><em>or</em></h3>
