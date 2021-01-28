@@ -79,7 +79,8 @@
                     <span class="s">"\"customer-product-code\": \"YOUR_UPC/SKU_NUMBER\","</span><span class="o">+</span>
                     <span class="s">"\"item-properties\":"</span><span class="o">+</span>
                     <span class="s">"{"</span><span class="o">+</span>
-                      <span class="s">"\"thread-color\": \"white\""</span><span class="o">+</span>
+                      <span class="s">"\"thread-color\": \"white\","</span><span class="o">+</span>
+                      <span class="s">"\"hs-code\": \"1234.56.789\""</span><span class="o">+</span>
                     <span class="s">"},"</span><span class="o">+</span>
                     <span class="s">"\"designs\": ["</span><span class="o">+</span>
                       <span class="s">"{"</span><span class="o">+</span>
