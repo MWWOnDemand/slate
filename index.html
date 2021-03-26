@@ -1222,7 +1222,7 @@ Also, you can regenerate the key at <https://api.mwwondemand.com/account/user/ap
 </tr>
 <tr>
 <td>item-properties <br><em>object (optional)</em></td>
-<td>Additional attributes for some products. This can be omitted in most cases. See products for more information. <br> Options include: alias-item-no, item-price, extended-description, wsf, thread-color, inside-neck-tape-color, cuff-color, string-color, hood-thread-color, body-thread-color, waist-color, item-label, hs-code, height, width, personalization, and unique-id <br> DTG options include: item-type, color, size, placement, and style</td>
+<td>Additional attributes for some products. This can be omitted in most cases. See products for more information. <br> Options include: alias-item-no, item-price, extended-description, wsf, thread-color, inside-neck-tape-color, cuff-color, string-color, <br>hood-thread-color, body-thread-color, waist-color, item-label, hs-code, height, width, personalization, and unique-id</td>
 </tr>
 <tr>
 <td>designs <br><em>array[single object]</em></td>
@@ -1231,6 +1231,14 @@ Also, you can regenerate the key at <https://api.mwwondemand.com/account/user/ap
 <tr>
 <td>image-remote-url <br><em>string</em></td>
 <td>A publically accessible path to the source artwork.</td>
+</tr>
+<tr>
+<td>location <br><em>string</em></td>
+<td>DTG products only. This is the print location for the image (&#39;front&#39; or &#39;back&#39; for now)</td>
+</tr>
+<tr>
+<td>placement <br><em>string</em></td>
+<td>DTG products only. This is a customization of the location value. Defaults to center. Not available currently.</td>
 </tr>
 </tbody></table>
 
